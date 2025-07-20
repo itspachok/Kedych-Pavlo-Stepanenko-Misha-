@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: #181c24;
+  color: #f3f3f3;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.header {
+  background: #23283a;
+  box-shadow: 0 2px 8px #0004;
+  padding: 16px 0 8px 0;
+  margin-bottom: 24px;
+}
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffb300;
+  letter-spacing: 1px;
+}
+.btn {
+  background: #ffb300;
+  color: #181c24;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px #0002;
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 4px #0003;
+}
+.btn:hover:not(:disabled) {
+  background: #ffa000;
+  color: #fff;
+  transform: scale(1.04);
+  box-shadow: 0 4px 16px #0003;
+}
+
+/* Картки фільмів */
+.movie-list {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 32px;
+}
+.movie-card {
+  background: #23283a;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0006;
+  padding: 20px;
+  width: 240px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) forwards;
+}
+.movie-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.movie-card h2 {
+  font-size: 1.2rem;
+  margin: 0 0 8px 0;
+}
+.movie-card p {
+  font-size: 0.98rem;
+  color: #e0e0e0;
+  margin-bottom: 12px;
+}
+.movie-card .genre {
+  font-size: 0.95rem;
+  color: #ffb300;
+  margin-bottom: 4px;
+}
+.movie-card .rating {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.movie-card .btn {
+  margin-top: 8px;
+}
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px #000a;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Схема залу */
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 40px);
+  gap: 8px;
+  justify-content: center;
+  margin: 24px 0;
+}
+.seat-btn {
+  width: 40px;
+  height: 40px;
+  background: #23283a;
+  color: #ffb300;
+  border: 2px solid #ffb300;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.seat-btn.selected {
+  background: #ffb300;
+  color: #23283a;
+}
+.seat-btn.reserved {
+  background: #444;
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+/* Контроли */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: center;
+}
+.controls input, .controls select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #888;
+  min-width: 140px;
+  font-size: 16px;
+}
+
+@media (max-width: 700px) {
+  .movie-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .movie-card {
+    width: 90vw;
+    max-width: 340px;
+  }
+  .seat-grid {
+    grid-template-columns: repeat(4, 40px);
+  }
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.modal {
+  display: none;
+} 
